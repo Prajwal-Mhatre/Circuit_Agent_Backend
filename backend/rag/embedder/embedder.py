@@ -4,7 +4,6 @@ from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core.schema import MetadataMode
 from tqdm import tqdm
 
-
 class Embedder:
     def __init__(self, model_name="text-embedding-3-small", dimensions=256, batch_size=20, chunk_size=5000, chunk_overlap=200):
         self.embed_model = OpenAIEmbedding(
