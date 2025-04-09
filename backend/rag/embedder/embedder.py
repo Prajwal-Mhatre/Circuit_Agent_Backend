@@ -32,6 +32,7 @@ class Embedder:
         for node in nodes:
             content = node.get_content(metadata_mode=MetadataMode.EMBED)
             node.embedding = self.embed_model.get_text_embedding(content)
+            assert node.embedding is not None, "❌ Embedding failed"
             if show_progress:
                 pbar.update(1)
 
