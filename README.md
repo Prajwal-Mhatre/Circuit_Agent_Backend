@@ -8,7 +8,7 @@ This project powers the backend for a circuit-aware LLM agent that supports hard
 
 ### 📦 Required Dependencies
 
-To run this backend, make sure you have Python 3.10+ and install the following dependencies:
+To run this backend, make sure you have Python and install the following dependencies:
 
 ```bash
 pip install llama-index-core
