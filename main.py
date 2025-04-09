@@ -1,30 +1,45 @@
-from llama_index.core import Document
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-#from llama_index.embeddings.openai import OpenAIEmbedding
-from llama_index.core import Settings
+# === Import core LlamaIndex components ===
+from llama_index.core import Document, Settings
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding  # free embedding model, comment if using openAI embeddings
+# from llama_index.embeddings.openai import OpenAIEmbedding  # Optional: Uncomment if using OpenAI embeddings (cost credits)
+
+# === Project-specific embedding and vector store classes ===
 from backend.rag.embedder.embedder2 import Embedder2
 from backend.rag.vectordb.vectordb2 import VectorDb2
+
+# === Environment setup ===
 from dotenv import load_dotenv
 load_dotenv()
 import os
 
-# Ensure the persist_dir exists before using it.
-STORAGE_PATH = "./chroma_db"
-COLLECTION_NAME = "my_test_collection2"
+# === Constants ===
+STORAGE_PATH = "./chroma_db"                  # Path to persist vector storage (Chroma DB)
+COLLECTION_NAME = "my_test_collection2"       # Name of the vector collection
 
-#uses embedding vector size = 378
-# no cost. will not work with query 
+# === Embedding Model Selection ===
+
+# Option 1: HuggingFace Embedding (free, no cost, works offline)
+# Note: This embedding model is suitable for storing and retrieving documents,
+# but it does not support semantic "query()" functionality that depends on an LLM.
+# Use only with "retrieve()" (similarity-based search without LLM).
+# Embedding vector size = 378
 embedding_model = HuggingFaceEmbedding(
     model_name="BAAI/bge-small-en-v1.5"
 )
 
-# uses embedding vector size = 256
-# consumes credits, will work with query .  Important: uncomment OpenAIEmbedding from imports to make this embedding work
+# Option 2: OpenAI Embedding (paid, requires API key)
+# This model supports full semantic search including query() functionality using an LLM.
+# Recommended if you plan to run cost-based, LLM-powered queries.
+# Embedding vector size = 256
+# NOTE: Uncomment both this block and the import statement  at the top to enable
 #embedding_model = OpenAIEmbedding(model="text-embedding-3-small",dimensions=256, batch_size=10)
 
 
-# Set global LlamaIndex config
+# === Apply selected embedding model to LlamaIndex global settings ===
 Settings.embed_model = embedding_model
+
+# === Sample documents for embedding and storage ===
+# These documents simulate sensor/component pin mappings or generic test input.
 
 # docs = [
 #     Document(text="This Airbnb in New York has 3 bedrooms and a rooftop."),
@@ -49,23 +64,46 @@ docs = [
 ]
 
 
+# === Pipeline: Embedding and Storing Documents ===
 def embed_and_store():
-    embedder = Embedder2(STORAGE_PATH,COLLECTION_NAME,embedding_model)
+    """
+    Splits the documents into nodes and stores them in ChromaDB(our vector storage) using the selected embedding model.
+    """
+    embedder = Embedder2(STORAGE_PATH, COLLECTION_NAME, embedding_model)
     nodes = embedder.load_and_split_document(docs)
     embedder.embed_nodes_and_add_to_storage(nodes)
 
+# === Pipeline: Query Vector Storage with LLM (expensive) ===
 def query_from_vector_storage(query):
-    vector_db = VectorDb2(STORAGE_PATH,COLLECTION_NAME)
+    """
+    Executes a similarity query using the vector database.
+    will use LLM internally to generate response, which could consume API credits.
+    """
+    vector_db = VectorDb2(STORAGE_PATH, COLLECTION_NAME)
     vector_db.query(query)
 
-def retrive_from_vector_storage(query,show_similarity):
-    vector_db = VectorDb2(STORAGE_PATH,COLLECTION_NAME)
-    vector_db.retrieve(query,show_similarity)
+# === Pipeline: Retrieve Similar Documents (cheap, no LLM) ===
+def retrive_from_vector_storage(query, show_similarity):
+    """
+    Retrieves similar documents from vector storage using pure embedding similarity.
+    Does not invoke LLM, so it's free.
+    """
+    vector_db = VectorDb2(STORAGE_PATH, COLLECTION_NAME)
+    vector_db.retrieve(query, show_similarity)
 
-query = "give me nothing "
 
-#embed_and_store()
-#query_from_vector_storage(query)
+# === Sample query ===
+query = "pin configuration of B919"
 
-retrive_from_vector_storage(query,True)
+
+# === Usage: Uncomment only the step you need ===
+
+# Step 1: Add documents to vector storage (run only once to upload data to vector storage)
+# embed_and_store()
+
+# Step 2: Query using LLM (incurs cost)
+# query_from_vector_storage(query)
+
+# Step 3: Retrieve similar documents from vector storage based on query without cost
+retrive_from_vector_storage(query, show_similarity=True)
 
