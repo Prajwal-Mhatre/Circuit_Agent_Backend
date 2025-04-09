@@ -1,5 +1,6 @@
 from llama_index.core import Document
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+#from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core import Settings
 from backend.rag.embedder.embedder2 import Embedder2
 from backend.rag.vectordb.vectordb2 import VectorDb2
@@ -11,10 +12,16 @@ import os
 STORAGE_PATH = "./chroma_db"
 COLLECTION_NAME = "my_test_collection2"
 
+#uses embedding vector size = 378
+# no cost. will not work with query 
 embedding_model = HuggingFaceEmbedding(
     model_name="BAAI/bge-small-en-v1.5"
 )
-#uses embedding vector size = 378
+
+# uses embedding vector size = 256
+# consumes credits, will work with query .  Important: uncomment OpenAIEmbedding from imports to make this embedding work
+#embedding_model = OpenAIEmbedding(model="text-embedding-3-small",dimensions=256, batch_size=10)
+
 
 # Set global LlamaIndex config
 Settings.embed_model = embedding_model
@@ -62,7 +69,3 @@ query = "give me nothing "
 
 retrive_from_vector_storage(query,True)
 
-##############################################################################################
-
-# please confirm this
-# it seems if 1 document is broken into 3 chunks, then while retriving , these 3 chunks are connected to each other and will be retrived all 3 at once for similarity found in any 3 of chunks, these 3 are treated as 1 document

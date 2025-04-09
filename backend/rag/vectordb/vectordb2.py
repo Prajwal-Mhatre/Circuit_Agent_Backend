@@ -18,7 +18,9 @@ class VectorDb2:
 
     def query(self,your_query):
         '''
+        consumes credits: try to use it less frequently for debugging
         this function requires a llm and its api key
+        it creates the query using rag knowledge and sends it to LLM using api key, and gets output
         '''
         # Create a query engine
         query_engine = self.index.as_query_engine()
@@ -28,10 +30,11 @@ class VectorDb2:
 
 
     def retrieve(self,your_embedded_query,show_similarity):
-        # Create a query engine
-        #query_engine = self.index.as_query_engine()
+        '''
+        retrieves document with highest similarity score
+        searches the vectorstore ( here chroma_db) and retrieves documents with highest similarity score
+        '''
         retriever = self.index.as_retriever(similarity_top_k=4)
-        #response = query_engine.query(your_query)
         retrieved_documents = retriever.retrieve(your_embedded_query)
         # Print the retrieved documents
         for doc in retrieved_documents:
@@ -40,8 +43,3 @@ class VectorDb2:
             else:
                 print(doc.text)
 
-
-## what you may need while making a index
-#     index = VectorStoreIndex.from_documents(documents, storage_context=storage_context, embed_model=embed_model)
-
-# but the difference here is from_vector_store() and from_documents() , so i dont think we need to pass embedding model as parameter. 
