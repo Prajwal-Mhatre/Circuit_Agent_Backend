@@ -8,7 +8,7 @@ This project powers the backend for a circuit-aware LLM agent that supports hard
 
 ### 📦 Required Dependencies
 
-To run this backend, make sure you have Python and install the following dependencies:
+To run this RAG from backend, make sure you have Python and install the following dependencies:
 
 ```bash
 pip install llama-index-core
@@ -22,3 +22,9 @@ pip install python-dotenv
 ```
 
 **✅ Tip:** It's recommended to use a virtual environment (`venv`) to manage dependencies and isolate your project from global packages.
+
+
+
+### ▶️ Running the Project
+
+Once dependencies are installed, run the main.py script.
