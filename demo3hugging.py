@@ -40,6 +40,8 @@ Settings.embed_model = embedding_model
 docs = [
     Document(text="the pin mapping of C11111 is pin1=mala , pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod, pin2=kala, pin3=vcc, pin4=arap, pin5=bit, pin6=kolo,pin7=corod"),
 ]
+#
+# these documents will be jsons
 
 
 def embed_and_store():

@@ -3,7 +3,6 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 import chromadb
 from tqdm import tqdm
 
-# another goal is to change embedding from openai to huggingfaceembedding if possible!)
 
 class Embedder2:
     def __init__(self, storage_path, collection_name,embedding_model):
@@ -15,8 +14,7 @@ class Embedder2:
 
 
     def load_and_split_document(self,documents):
-        # Load documents
-        #documents = SimpleDirectoryReader("./data").load_data()
+
 
         # Split documents into nodes
         splitter = SentenceSplitter(chunk_size=512, chunk_overlap=50)   #node parcer, divides doc into nodes
@@ -26,8 +24,6 @@ class Embedder2:
 
     def embed_nodes_and_add_to_storage(self, nodes):
 
-        # Embed nodes
-        #embed_model = OpenAIEmbedding(model="text-embedding-ada-002")
         show_progress = True
 
         if show_progress:

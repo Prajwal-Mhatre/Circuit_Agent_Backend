@@ -19,6 +19,7 @@ class VectorDb2:
     def query(self,your_query):
         '''
         this function requires a llm and its api key
+        this uses LLM api to generate output with rag knowledge
         '''
         # Create a query engine
         query_engine = self.index.as_query_engine()
@@ -28,6 +29,9 @@ class VectorDb2:
 
 
     def retrieve(self,your_embedded_query,show_similarity):
+        '''
+        only retrieves documents based on similarity score
+        '''
         # Create a query engine
         #query_engine = self.index.as_query_engine()
         retriever = self.index.as_retriever(similarity_top_k=4)
