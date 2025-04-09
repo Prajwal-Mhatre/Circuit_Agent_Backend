@@ -23,7 +23,31 @@ pip install python-dotenv
 
 **✅ Tip:** It's recommended to use a virtual environment (`venv`) to manage dependencies and isolate your project from global packages.
 
+---
 
+### 🔐 Environment Variables
+
+> 📝 Make sure your `.env` file is configured with API keys if you're using OpenAI embeddings or LLM queries.
+
+Create a `.env` file in your project root (same level as `main.py`) with the following content:
+
+```env
+OPENAI_API_KEY="your-openai-api-key"
+```
+
+🔒 **Important:** Ensure your `.env` file is listed in `.gitignore` to prevent accidental uploads.  
+You can check this by opening `.gitignore` and verifying it includes:
+
+```
+.env
+```
+
+If it's not already there, add it manually.
+
+---
+
+```markdown
+> 📝 Make sure your `.env` file is configured with API keys if you're using OpenAI embeddings or LLM queries.
 
 ### ▶️ Running the Project
 
