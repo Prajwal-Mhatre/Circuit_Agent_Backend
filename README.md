@@ -19,4 +19,6 @@ pip install llama-index-embeddings-openai  # Optional: Only needed if you use Op
 pip install chromadb
 pip install python-dotenv
 
+```
+
 **✅ Tip:** It's recommended to use a virtual environment (`venv`) to manage dependencies and isolate your project from global packages.
