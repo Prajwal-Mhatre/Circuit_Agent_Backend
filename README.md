@@ -46,9 +46,6 @@ If it's not already there, add it manually.
 
 ---
 
-```markdown
-> 📝 Make sure your `.env` file is configured with API keys if you're using OpenAI embeddings or LLM queries.
-
 ### ▶️ Running the Project
 
 Once dependencies are installed, run the `main.py` script.
