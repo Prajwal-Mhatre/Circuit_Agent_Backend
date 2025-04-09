@@ -27,4 +27,4 @@ pip install python-dotenv
 
 ### ▶️ Running the Project
 
-Once dependencies are installed, run the main.py script.
+Once dependencies are installed, run the `main.py` script.
