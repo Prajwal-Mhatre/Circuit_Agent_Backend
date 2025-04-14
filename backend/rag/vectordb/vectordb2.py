@@ -2,6 +2,11 @@ import chromadb
 from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.core import VectorStoreIndex, StorageContext
 
+from llama_index.llms.openai import OpenAI
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
 class VectorDb2:
     def __init__(self,storage_path, collection_name):
         # Initialize ChromaDB client and access the existing collection
@@ -15,6 +20,7 @@ class VectorDb2:
         # Load your index from the stored vectors
         self.index = VectorStoreIndex.from_vector_store(vector_store, storage_context=storage_context)
 
+        self.llm = OpenAI(model="gpt-4o-mini")
 
     def query(self,your_query):
         '''
@@ -22,7 +28,7 @@ class VectorDb2:
         this uses LLM api to generate output with rag knowledge
         '''
         # Create a query engine
-        query_engine = self.index.as_query_engine()
+        query_engine = self.index.as_query_engine(llm = self.llm)
         # Query the index
         response = query_engine.query(your_query)
         print(response)
@@ -34,7 +40,7 @@ class VectorDb2:
         '''
         # Create a query engine
         #query_engine = self.index.as_query_engine()
-        retriever = self.index.as_retriever(similarity_top_k=4)
+        retriever = self.index.as_retriever(similarity_top_k=10)
         #response = query_engine.query(your_query)
         retrieved_documents = retriever.retrieve(your_embedded_query)
         # Print the retrieved documents
@@ -43,6 +49,15 @@ class VectorDb2:
                 print(doc)
             else:
                 print(doc.text)
+
+
+# test this as well.
+# retriever = index.as_retriever(
+#     dense_similarity_top_k=3,
+#     sparse_similarity_top_k=3,
+#     alpha=0.5,
+#     enable_reranking=True,
+# )
 
 
 ## what you may need while making a index

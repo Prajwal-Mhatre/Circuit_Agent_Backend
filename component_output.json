@@ -1,0 +1,45 @@
+{
+  "project_name": "User Device Project",
+  "components": [
+    {
+      "component_name": "Arduino_Uno",
+      "quantity": 1,
+      "description": "A microcontroller board based on the ATmega328P."
+    },
+    {
+      "component_name": "LED",
+      "quantity": 10,
+      "description": "Light Emitting Diode for visual indicators."
+    },
+    {
+      "component_name": "Resistor",
+      "quantity": 10,
+      "description": "Standard resistors for current limiting."
+    },
+    {
+      "component_name": "Capacitor",
+      "quantity": 5,
+      "description": "Electrolytic capacitors for power smoothing."
+    },
+    {
+      "component_name": "Breadboard",
+      "quantity": 1,
+      "description": "A board for prototyping electronic circuits."
+    },
+    {
+      "component_name": "Sensor",
+      "quantity": 2,
+      "description": "Various sensors for input data."
+    },
+    {
+      "component_name": "Transistor",
+      "quantity": 5,
+      "description": "Used for switching and amplification."
+    },
+    {
+      "component_name": "Power Supply",
+      "quantity": 1,
+      "description": "Power source for the circuit."
+    }
+  ]
+}

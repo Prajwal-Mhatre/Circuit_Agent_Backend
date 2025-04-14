@@ -1,0 +1,259 @@
+{
+  "project": "User Device Project",
+  "components": [
+    {
+      "name": "Arduino_Uno",
+      "pins": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "type": "custom_IC"
+    },
+    {
+      "name": "LED",
+      "pins": [
+        "LED1",
+        "LED2",
+        "LED3",
+        "LED4",
+        "LED5",
+        "LED6",
+        "LED7",
+        "LED8",
+        "LED9",
+        "LED10"
+      ],
+      "type": "custom_IC"
+    },
+    {
+      "name": "Resistor",
+      "pins": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9",
+        "R10"
+      ],
+      "type": "resistor"
+    },
+    {
+      "name": "Capacitor",
+      "pins": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "type": "custom_IC"
+    },
+    {
+      "name": "Breadboard",
+      "pins": [
+        "BB1",
+        "BB2",
+        "BB3",
+        "BB4",
+        "BB5",
+        "BB6",
+        "BB7",
+        "BB8",
+        "BB9",
+        "BB10"
+      ],
+      "type": "custom_IC"
+    },
+    {
+      "name": "Sensor",
+      "pins": [
+        "S1",
+        "S2"
+      ],
+      "type": "custom_IC"
+    },
+    {
+      "name": "Transistor",
+      "pins": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "type": "custom_IC"
+    },
+    {
+      "name": "Power Supply",
+      "pins": [
+        "VCC",
+        "GND"
+      ],
+      "type": "custom_IC"
+    }
+  ],
+  "connections": [
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D2"
+      ],
+      "to": [
+        "LED",
+        "LED1"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D3"
+      ],
+      "to": [
+        "LED",
+        "LED2"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D4"
+      ],
+      "to": [
+        "LED",
+        "LED3"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D5"
+      ],
+      "to": [
+        "LED",
+        "LED4"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D6"
+      ],
+      "to": [
+        "LED",
+        "LED5"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D7"
+      ],
+      "to": [
+        "LED",
+        "LED6"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D8"
+      ],
+      "to": [
+        "LED",
+        "LED7"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D9"
+      ],
+      "to": [
+        "LED",
+        "LED8"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D10"
+      ],
+      "to": [
+        "LED",
+        "LED9"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D11"
+      ],
+      "to": [
+        "LED",
+        "LED10"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "A0"
+      ],
+      "to": [
+        "Sensor",
+        "S1"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "A1"
+      ],
+      "to": [
+        "Sensor",
+        "S2"
+      ]
+    },
+    {
+      "from_": [
+        "Power Supply",
+        "VCC"
+      ],
+      "to": [
+        "Arduino_Uno",
+        "VCC"
+      ]
+    },
+    {
+      "from_": [
+        "Power Supply",
+        "GND"
+      ],
+      "to": [
+        "Arduino_Uno",
+        "GND"
+      ]
+    }
+  ]
+}

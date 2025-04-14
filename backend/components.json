@@ -1,0 +1,39 @@
+{
+    "Arduino_Uno": {
+      "pins": ["D0", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D10", "D11", "D12", "D13", "A0", "A1", "A2", "A3", "A4", "A5", "GND", "5V", "3.3V", "VIN", "RESET"],
+      "type": "custom_IC"
+    },
+    "l293d_motordriver": {
+      "pins": ["Enable1", "Input1", "Output1", "GND1", "Enable2", "Input2", "Output2", "GND2", "VS", "VSS"],
+      "type": "custom_IC"
+    },
+    "ir_sensor": {
+      "pins": ["OUT", "GND", "VCC"],
+      "type": "custom_IC"
+    },
+    "soil_moisture_sensor": {
+      "pins": ["A0", "VCC", "GND"],
+      "type": "custom_IC"
+    },
+    "water_pump": {
+      "pins": ["+", "-"],
+      "type": "custom_IC"
+    },
+    "relay_module": {
+      "pins": ["IN", "VCC", "GND"],
+      "type": "relay"
+    },
+    "dht11_sensor": {
+      "pins": ["VCC", "GND", "DATA"],
+      "type": "custom_IC"
+    },
+    "lcd_display": {
+      "pins": ["RS", "EN", "D4", "D5", "D6", "D7", "VCC", "GND"],
+      "type": "custom_IC"
+    },
+    "battery_pack": {
+      "pins": ["VCC", "GND"],
+      "type": "power_supply"
+    }
+  }
+  

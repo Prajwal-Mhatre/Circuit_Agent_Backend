@@ -1,0 +1,8 @@
+major problems in llm
+
+1) factual correctnes is weak
+2) debugging existing code is bad
+
+
+1) fine tuning with our data runs the risk that lllm only increaments its knowledge and becomes better as answering or english capability
+2) best option is rag for personal knowledge

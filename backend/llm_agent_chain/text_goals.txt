@@ -1,0 +1,66 @@
+what all should be implementd
+
+1. a llm response chain!
+2. explore dpo fine tuning, and check if its what can give me structured outputs!
+3. can i use asynchronous ? so i implement different things at same time?
+4. what is json mode? will it help ?
+
+
+Include examples and edge cases, especially to rectify any recurring failures. (Note: Adding examples may hurt performance for reasoning models.)
+
+for structured format
+Explicit refusals: Safety-based model refusals are now programmatically detectable
+
+for structed format in json
+advantage
+For example, if you are building a math tutoring application, you might want the assistant to respond to your user using a specific JSON Schema so that you can generate a UI that displays different parts of the model's output in distinct ways.
+
+
+
+
+in case model cannot output strucuted json format
+try:
+    response = client.responses.create(
+        model="gpt-4o-2024-08-06",
+        input=[
+            {
+                "role": "system",
+                "content": "You are a helpful math tutor. Guide the user through the solution step by step.",
+            },
+            {"role": "user", "content": "how can I solve 8x + 7 = -23"},
+        ],
+        text={
+            "format": {
+                "type": "json_schema",
+                "name": "math_response",
+                "strict": True,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "steps": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "explanation": {"type": "string"},
+                                    "output": {"type": "string"},
+                                },
+                                "required": ["explanation", "output"],
+                                "additionalProperties": False,
+                            },
+                        },
+                        "final_answer": {"type": "string"},
+                    },
+                    "required": ["steps", "final_answer"],
+                    "additionalProperties": False,
+                },
+                "strict": True,
+            },
+        },
+    )
+except Exception as e:
+    # handle errors like finish_reason, refusal, content_filter, etc.
+    pass 
+
+add validation like "type must be one of: Sensor, IC, Motor, Battery" etc.
+- this will help my circuit generator.
