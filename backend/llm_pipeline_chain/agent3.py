@@ -11,6 +11,7 @@ class ComponentCode(BaseModel):
     code: str
 
 class FullCodeOutput(BaseModel):
+    """ code for each component to make the embedded project work"""
     project: str
     code_blocks: List[ComponentCode]
 

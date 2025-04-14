@@ -2,18 +2,29 @@ import json
 from pathlib import Path
 from typing import List, Optional, Union
 from llama_index.program.openai import OpenAIPydanticProgram
-from pydantic import BaseModel, field_validator
-from pin_map_svg_generator.svg_generator import main
+from pydantic import BaseModel, field_validator, Field
+from backend.pin_map_svg_generator.svg_generator import main
 
 # --- STRUCTURED OUTPUT SCHEMAS ---
 class Connection(BaseModel):
-    from_: List[str]  # 'from' is a keyword, so use 'from_'
-    to: List[str]
+    from_: List[str] = Field(..., min_items=2, max_items=2)
+    to: List[str]= Field(..., min_items=2, max_items=2)
+    @field_validator("from_", "to")
+    @classmethod
+    def validate_two_strings(cls, v, field):
+        if len(v) != 2:
+            raise ValueError(f"'{field.name}' must have exactly 2 elements")
+        if not all(isinstance(item, str) for item in v):
+            raise ValueError(f"All items in '{field.name}' must be strings")
+        return v
 
 class Component(BaseModel):
     name: str
     pins: List[str]
     type: str
+    name: str
+    pins: List[str]
+    type: str  # keep it str so we can map everything, even custom values
 
     @field_validator("type", mode="before")
     @classmethod
@@ -68,8 +79,9 @@ class Agent2:
 
 
 
-    def run(self, component_data: dict, save: bool = True) -> FullHardwareSpec:
+    def run(self, component_data, save: bool = True) -> FullHardwareSpec:
         component_json_str = json.dumps(component_data, indent=2)
+        #component_json_str = component_data
         result = self.program(component_data=component_json_str)
 
         if save:

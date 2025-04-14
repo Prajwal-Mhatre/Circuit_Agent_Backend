@@ -1,6 +1,6 @@
 from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
 import tiktoken
-from ..cost_tracker import CostTracker
+from .cost_tracker import CostTracker
 
 class TokenCounter:
     def __init__(self,llm_model):

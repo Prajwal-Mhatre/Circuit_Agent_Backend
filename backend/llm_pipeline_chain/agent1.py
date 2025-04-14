@@ -11,6 +11,7 @@ class ProjectComponent(BaseModel):
     description: str
 
 class ProjectComponentList(BaseModel):
+    """Structured schema for generating a project name and component list."""
     project_name: str
     components: list[ProjectComponent]
 
