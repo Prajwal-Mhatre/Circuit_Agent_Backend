@@ -91,7 +91,7 @@ program = OpenAIPydanticProgram.from_defaults(
 )
 
 # 5. Run it using the user's natural language query
-user_query = "Build me a plant watering system."
+user_query = "Build me a fire fighting robot."
 output = program(user_query=user_query)
 
 # 6. Output is structured and validated by Pydantic

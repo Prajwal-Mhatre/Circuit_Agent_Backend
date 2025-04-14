@@ -1,35 +1,50 @@
 {
-  "project_name": "Plant Watering System",
+  "project_name": "Fire Fighting Robot",
   "components": [
     {
       "component_name": "Arduino_Uno",
       "quantity": 1,
-      "description": "Microcontroller to control the watering system."
+      "description": "Microcontroller for controlling the robot's operations."
     },
     {
-      "component_name": "Soil Moisture Sensor",
+      "component_name": "DC Motor",
+      "quantity": 4,
+      "description": "Motors to drive the wheels of the robot."
+    },
+    {
+      "component_name": "Ultrasonic Sensor",
+      "quantity": 2,
+      "description": "Sensors for obstacle detection."
+    },
+    {
+      "component_name": "Flame Sensor",
       "quantity": 1,
-      "description": "Sensor to measure the moisture level in the soil."
+      "description": "Sensor to detect fire."
     },
     {
       "component_name": "Water Pump",
       "quantity": 1,
-      "description": "Pump to deliver water to the plants."
+      "description": "Pump to spray water on the fire."
     },
     {
-      "component_name": "Relay Module",
+      "component_name": "Battery Pack",
       "quantity": 1,
-      "description": "Module to control the water pump based on sensor input."
+      "description": "Power source for the robot."
     },
     {
-      "component_name": "Power Supply",
+      "component_name": "Chassis",
       "quantity": 1,
-      "description": "Power source for the microcontroller and pump."
+      "description": "Frame to hold all components together."
     },
     {
-      "component_name": "Water Tubing",
+      "component_name": "Motor Driver Module",
       "quantity": 1,
-      "description": "Tubing to transport water from the pump to the plants."
+      "description": "Module to control the DC motors."
+    },
+    {
+      "component_name": "LEDs",
+      "quantity": 4,
+      "description": "Indicator lights for status indication."
     }
   ]
 }

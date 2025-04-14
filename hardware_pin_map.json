@@ -1,46 +1,57 @@
 {
-  "project": "Plant Watering System",
-  "description": "An automated system that waters plants based on soil moisture levels using a microcontroller, sensors, and a pump.",
+  "project": "Fire Fighting Robot",
+  "description": "A robot designed to detect and extinguish fires using sensors and a water pump.",
   "components": [
     {
       "name": "Arduino_Uno",
       "pins": [
         "D2",
         "D3",
-        "GND",
-        "5V"
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9"
       ],
       "type": "custom_IC"
     },
     {
-      "name": "Soil Moisture Sensor",
+      "name": "DC Motor",
       "pins": [
-        "A0",
-        "GND",
-        "5V"
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "type": "motor"
+    },
+    {
+      "name": "Ultrasonic Sensor",
+      "pins": [
+        "Trig1",
+        "Echo1",
+        "Trig2",
+        "Echo2"
+      ],
+      "type": "custom_IC"
+    },
+    {
+      "name": "Flame Sensor",
+      "pins": [
+        "A0"
       ],
       "type": "custom_IC"
     },
     {
       "name": "Water Pump",
       "pins": [
-        "VCC",
-        "GND",
-        "D4"
+        "D10"
       ],
       "type": "motor"
     },
     {
-      "name": "Relay Module",
-      "pins": [
-        "IN1",
-        "GND",
-        "VCC"
-      ],
-      "type": "relay"
-    },
-    {
-      "name": "Power Supply",
+      "name": "Battery Pack",
       "pins": [
         "VCC",
         "GND"
@@ -48,8 +59,25 @@
       "type": "custom_IC"
     },
     {
-      "name": "Water Tubing",
-      "pins": [],
+      "name": "Motor Driver Module",
+      "pins": [
+        "IN1",
+        "IN2",
+        "IN3",
+        "IN4",
+        "VCC",
+        "GND"
+      ],
+      "type": "custom_IC"
+    },
+    {
+      "name": "LEDs",
+      "pins": [
+        "D11",
+        "D12",
+        "D13",
+        "D14"
+      ],
       "type": "custom_IC"
     }
   ],
@@ -60,88 +88,178 @@
         "D2"
       ],
       "to": [
-        "Relay Module",
+        "Motor Driver Module",
         "IN1"
       ]
     },
     {
       "from_": [
-        "Soil Moisture Sensor",
+        "Arduino_Uno",
+        "D3"
+      ],
+      "to": [
+        "Motor Driver Module",
+        "IN2"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D4"
+      ],
+      "to": [
+        "Motor Driver Module",
+        "IN3"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D5"
+      ],
+      "to": [
+        "Motor Driver Module",
+        "IN4"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D6"
+      ],
+      "to": [
+        "Ultrasonic Sensor",
+        "Trig1"
+      ]
+    },
+    {
+      "from_": [
+        "Ultrasonic Sensor",
+        "Echo1"
+      ],
+      "to": [
+        "Arduino_Uno",
+        "D7"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D8"
+      ],
+      "to": [
+        "Ultrasonic Sensor",
+        "Trig2"
+      ]
+    },
+    {
+      "from_": [
+        "Ultrasonic Sensor",
+        "Echo2"
+      ],
+      "to": [
+        "Arduino_Uno",
+        "D9"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
         "A0"
       ],
       "to": [
+        "Flame Sensor",
+        "A0"
+      ]
+    },
+    {
+      "from_": [
         "Arduino_Uno",
-        "D3"
-      ]
-    },
-    {
-      "from_": [
-        "Relay Module",
-        "GND"
+        "D10"
       ],
       "to": [
-        "Power Supply",
-        "GND"
-      ]
-    },
-    {
-      "from_": [
-        "Relay Module",
-        "VCC"
-      ],
-      "to": [
-        "Power Supply",
-        "VCC"
-      ]
-    },
-    {
-      "from_": [
         "Water Pump",
-        "GND"
-      ],
-      "to": [
-        "Power Supply",
-        "GND"
+        "D10"
       ]
     },
     {
       "from_": [
-        "Water Pump",
+        "Battery Pack",
         "VCC"
       ],
       "to": [
-        "Relay Module",
-        "IN1"
-      ]
-    },
-    {
-      "from_": [
-        "Arduino_Uno",
-        "GND"
-      ],
-      "to": [
-        "Power Supply",
-        "GND"
-      ]
-    },
-    {
-      "from_": [
-        "Arduino_Uno",
-        "5V"
-      ],
-      "to": [
-        "Soil Moisture Sensor",
-        "5V"
-      ]
-    },
-    {
-      "from_": [
-        "Arduino_Uno",
-        "5V"
-      ],
-      "to": [
-        "Relay Module",
+        "Motor Driver Module",
         "VCC"
+      ]
+    },
+    {
+      "from_": [
+        "Battery Pack",
+        "GND"
+      ],
+      "to": [
+        "Motor Driver Module",
+        "GND"
+      ]
+    },
+    {
+      "from_": [
+        "Battery Pack",
+        "VCC"
+      ],
+      "to": [
+        "Arduino_Uno",
+        "VCC"
+      ]
+    },
+    {
+      "from_": [
+        "Battery Pack",
+        "GND"
+      ],
+      "to": [
+        "Arduino_Uno",
+        "GND"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D11"
+      ],
+      "to": [
+        "LEDs",
+        "D11"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D12"
+      ],
+      "to": [
+        "LEDs",
+        "D12"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D13"
+      ],
+      "to": [
+        "LEDs",
+        "D13"
+      ]
+    },
+    {
+      "from_": [
+        "Arduino_Uno",
+        "D14"
+      ],
+      "to": [
+        "LEDs",
+        "D14"
       ]
     }
   ]
