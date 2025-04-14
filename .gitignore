@@ -1,3 +1,11 @@
 .venv/
 .env
 chroma_db/
+component_code_output_json_code_viewer.py
+component_code_output_printed_code.txt
+component_code_output.json
+component_output.json
+components_inventory.json
+cost_data.json
+hardware_pin_map.json
+my_circuit.svg

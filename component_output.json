@@ -1,45 +1,35 @@
 {
-  "project_name": "User Device Project",
+  "project_name": "Plant Watering System",
   "components": [
     {
       "component_name": "Arduino_Uno",
       "quantity": 1,
-      "description": "A microcontroller board based on the ATmega328P."
+      "description": "Microcontroller to control the watering system."
     },
     {
-      "component_name": "LED",
-      "quantity": 10,
-      "description": "Light Emitting Diode for visual indicators."
-    },
-    {
-      "component_name": "Resistor",
-      "quantity": 10,
-      "description": "Standard resistors for current limiting."
-    },
-    {
-      "component_name": "Capacitor",
-      "quantity": 5,
-      "description": "Electrolytic capacitors for power smoothing."
-    },
-    {
-      "component_name": "Breadboard",
+      "component_name": "Soil Moisture Sensor",
       "quantity": 1,
-      "description": "A board for prototyping electronic circuits."
+      "description": "Sensor to measure the moisture level in the soil."
     },
     {
-      "component_name": "Sensor",
-      "quantity": 2,
-      "description": "Various sensors for input data."
+      "component_name": "Water Pump",
+      "quantity": 1,
+      "description": "Pump to deliver water to the plants."
     },
     {
-      "component_name": "Transistor",
-      "quantity": 5,
-      "description": "Used for switching and amplification."
+      "component_name": "Relay Module",
+      "quantity": 1,
+      "description": "Module to control the water pump based on sensor input."
     },
     {
       "component_name": "Power Supply",
       "quantity": 1,
-      "description": "Power source for the circuit."
+      "description": "Power source for the microcontroller and pump."
+    },
+    {
+      "component_name": "Water Tubing",
+      "quantity": 1,
+      "description": "Tubing to transport water from the pump to the plants."
     }
   ]
 }
