@@ -1,0 +1,45 @@
+{
+  "project_name": "Flame Throwing Robot",
+  "components": [
+    {
+      "component_name": "Arduino_Uno",
+      "quantity": 1,
+      "description": "Microcontroller to control the robot's functions and operations."
+    },
+    {
+      "component_name": "Flame Thrower",
+      "quantity": 1,
+      "description": "Device to project flames, used for the robot's primary function."
+    },
+    {
+      "component_name": "Servo Motor",
+      "quantity": 2,
+      "description": "Used to control the movement of the flame thrower."
+    },
+    {
+      "component_name": "Battery Pack",
+      "quantity": 1,
+      "description": "Power source for the robot and its components."
+    },
+    {
+      "component_name": "Temperature Sensor",
+      "quantity": 1,
+      "description": "Sensor to detect temperature and ensure safe operation."
+    },
+    {
+      "component_name": "Chassis",
+      "quantity": 1,
+      "description": "Frame to hold all components and provide mobility."
+    },
+    {
+      "component_name": "Wheels",
+      "quantity": 4,
+      "description": "Used for the movement of the robot."
+    },
+    {
+      "component_name": "Motor Driver",
+      "quantity": 1,
+      "description": "Controls the motors for movement."
+    }
+  ]
+}

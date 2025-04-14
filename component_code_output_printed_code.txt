@@ -1,0 +1,33 @@
+Project: Flame Throwing Robot
+
+
+Component: Arduino_Uno
+----------------------------------------
+#include <Servo.h>
+
+Servo myServo;
+
+const int flameThrowerPin = 3;
+const int tempSensorPin = A0;
+const int motorDriverPins[] = {10, 11, 12, 13};
+
+void setup() {
+  myServo.attach(2);
+  pinMode(flameThrowerPin, OUTPUT);
+  for (int i = 0; i < 4; i++) {
+    pinMode(motorDriverPins[i], OUTPUT);
+  }
+  Serial.begin(9600);
+}
+
+void loop() {
+  int temperature = analogRead(tempSensorPin);
+  Serial.println(temperature);
+  if (temperature > 500) { // Example threshold
+    digitalWrite(flameThrowerPin, HIGH); // Activate flame thrower
+  } else {
+    digitalWrite(flameThrowerPin, LOW); // Deactivate flame thrower
+  }
+  // Add motor control logic here
+}
+
