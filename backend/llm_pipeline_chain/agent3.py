@@ -18,7 +18,7 @@ class FullCodeOutput(BaseModel):
 
 # --- MAIN CLASS ---
 class Agent3:
-    def __init__(self, llm, output_path: str = "component_code_output.json", previous_specs: Optional[List[dict]] = None,):
+    def __init__(self, llm, output_path: str = "agent3_output.json", previous_specs: Optional[List[dict]] = None,):
         self.llm = llm
         self.output_path = Path(output_path)
         self.previous_specs = previous_specs or []
