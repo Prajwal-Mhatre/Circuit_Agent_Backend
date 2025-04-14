@@ -1,8 +1,4 @@
-from pydantic import BaseModel, field_validator
-from llama_index.program.openai import OpenAIPydanticProgram
 from llama_index.llms.openai import OpenAI
-from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
-import tiktoken
 from dotenv import load_dotenv
 load_dotenv()
 import os
@@ -14,7 +10,6 @@ from agent1 import Agent1
 from agent2 import Agent2
 from agent3 import Agent3
 
-from typing import List, Union
 import json
 
 
@@ -25,7 +20,7 @@ token_counter = TokenCounter("gpt-4o-mini")
 llm = OpenAI(model="gpt-4o-mini",callback_manager=token_counter.get_call_back_manager())
 #llm = OpenAI(model="gpt-4o-mini-2024-07-18")
 
-user_query = "build be a fast flying drone"
+user_query = "build be a flame throwing robot"
 
 agent1 = Agent1(llm)
 output1 = agent1.run(user_query)
