@@ -17,7 +17,7 @@ class ProjectComponentList(BaseModel):
 
 # --- MAIN CLASS ---
 class Agent1:
-    def __init__(self, llm, output_path: str = "component_output.json"):
+    def __init__(self, llm, output_path: str = "agent1_output.json"):
         self.llm = llm
         self.output_path = Path(output_path)
         self.prompt_template = (

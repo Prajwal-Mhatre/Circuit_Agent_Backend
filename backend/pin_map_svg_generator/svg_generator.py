@@ -1,6 +1,9 @@
+import os
+import uuid
 import json
 import schemdraw
 import schemdraw.elements as elm
+schemdraw.use('svg')  # ✅ required for headless/CLI SVG generation
 
 def create_component(comp, pos, group):
     """Create an IC element for a component at position pos.
@@ -131,9 +134,19 @@ def main(data):
     draw_connections(d, comp_objs, connections)
     
     # Render and save the drawing.
-    d.draw()
-    d.save('my_circuit.svg')
-    print("Circuit drawn and saved as 'my_circuit.svg'.")
+    print("[SVG] Drawing...")
+    #d.draw()
+    print("[SVG] Drawing complete, saving to file...")
+    # d.save('my_circuit.svg')
+    # print("Circuit drawn and saved as 'my_circuit.svg'.")
+        # Save to a unique file in /tmp/ or ./tmp/
+
+    os.makedirs("tmp", exist_ok=True)
+    file_path = os.path.join("tmp", f"{uuid.uuid4().hex}.svg")
+    d.save(file_path)
+    print(f"SVG saved to {file_path}")
+
+    return file_path
 
 #if __name__ == "__main__":
 #    main()

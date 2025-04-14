@@ -46,7 +46,7 @@ class FullHardwareSpec(BaseModel):
 
 # --- MAIN CLASS ---
 class Agent2:
-    def __init__(self,llm,output_path: str = "hardware_pin_map.json",previous_component_outputs: Optional[List[dict]] = None):
+    def __init__(self,llm,output_path: str = "agent2_output.json",previous_component_outputs: Optional[List[dict]] = None):
         self.llm = llm
         self.output_path = Path(output_path)
         self.previous_component_outputs = previous_component_outputs or []
