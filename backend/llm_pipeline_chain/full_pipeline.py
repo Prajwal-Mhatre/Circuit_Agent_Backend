@@ -38,10 +38,10 @@ output3 = agent3.run(output2)
 
 ###calculate cost
 # Token usage and cost calculator
-token_counter.calculate_cost_till_now()
+#token_counter.calculate_cost_till_now()
 # Print usage of this session
-token_counter.print_usage()
+#token_counter.print_usage()
 
 #Print all usage of your api
-token_counter.print_total_usage_till_now()
+#token_counter.print_total_usage_till_now()
 

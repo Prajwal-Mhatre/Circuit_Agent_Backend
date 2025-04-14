@@ -11,4 +11,7 @@ hardware_pin_map.json
 my_circuit.svg
 testembed.py
 testProblems
-demo_frontend/
+tmp
+agent1_output.json
+agent2_output.json
+agent3_output.json

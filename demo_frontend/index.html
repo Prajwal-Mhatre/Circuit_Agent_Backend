@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LLM Hardware Builder</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #output { white-space: pre-wrap; margin-top: 20px; }
+
+    #svg-panel, #code-panel {
+      position: fixed; top: 0; right: -100%; width: 40%; height: 100%;
+      background: #f9f9f9; overflow: auto; transition: right 0.3s ease;
+      padding: 20px; box-shadow: -2px 0 5px rgba(0,0,0,0.2); z-index: 10;
+    }
+
+    #svg-panel.open, #code-panel.open {
+      right: 0;
+    }
+
+    #top-right-buttons {
+      position: fixed; top: 10px; right: 10px; z-index: 20;
+    }
+
+    .icon-btn {
+      margin: 5px;
+      font-size: 18px;
+      padding: 8px 12px;
+      cursor: pointer;
+      background: #ddd;
+      border: none;
+      border-radius: 5px;
+    }
+
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Hardware Builder Chat</h2>
+  <input type="text" id="chat-input" placeholder="Describe your hardware idea..." style="width: 80%;">
+  <button onclick="send()">Submit</button>
+
+  <div id="output"></div>
+
+  <div id="top-right-buttons">
+    <button class="icon-btn" onclick="togglePanel('svg-panel')">🖼️ SVG</button>
+    <button class="icon-btn" onclick="togglePanel('code-panel')">💻 Code</button>
+  </div>
+
+  <div id="svg-panel">
+    <h3>Wiring Diagram (SVG)</h3>
+    <div id="svg-output"></div>
+  </div>
+
+  <div id="code-panel">
+    <h3>Generated Code</h3>
+    <div id="code-output"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

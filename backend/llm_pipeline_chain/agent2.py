@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import List, Optional, Union
 from llama_index.program.openai import OpenAIPydanticProgram
 from pydantic import BaseModel, field_validator, Field
-from backend.pin_map_svg_generator.svg_generator import main
+from pin_map_svg_generator.svg_generator import main
 
 # --- STRUCTURED OUTPUT SCHEMAS ---
 class Connection(BaseModel):
