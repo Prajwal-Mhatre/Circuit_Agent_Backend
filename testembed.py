@@ -10,3 +10,5 @@ embedding = embed_model.get_text_embedding("This is a test string.")
 
 # Print the dimension of the returned vector
 print("Embedding dimension:", len(embedding))
+
+###################
